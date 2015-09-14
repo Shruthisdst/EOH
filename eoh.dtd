@@ -1,0 +1,15 @@
+<!ELEMENT eoh (entry*)>
+<!ELEMENT entry (head, description)>
+<!ELEMENT head (word, alias*, note*)>
+<!ELEMENT word (#PCDATA)>
+<!ELEMENT alias (#PCDATA)>
+<!ELEMENT note (#PCDATA)>
+<!ELEMENT description ANY>
+<!ELEMENT p ANY>
+<!ELEMENT ol (li+)>
+<!ELEMENT ul (li+)>
+<!ATTLIST ul class CDATA #REQUIRED>
+<!ELEMENT li ANY>
+<!ELEMENT subhead ANY>
+<!ELEMENT em ANY>
+<!ELEMENT ref ANY>
