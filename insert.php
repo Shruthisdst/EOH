@@ -1,8 +1,8 @@
 <?php
-$host="localhost";
-$user="root";
-$password="mysql";
-$database="eoh";
+$host = $argv[1];
+$database = $argv[2];
+$user = $argv[3];
+$password = $argv[4];
 libxml_use_internal_errors(true);
 
 //table structure
