@@ -96,11 +96,19 @@ if(!empty($_POST['chk_list']))
 		while($row = $result->fetch_assoc())
 		{
 			$mng = $row['text'];
+			$id = $row['entry_id'];
 			
 			$xmlObj=simplexml_load_string($mng);
 			
 			echo '<div class="word">';
 			echo '<div class="whead">';
+			foreach ($xmlObj->head->image as $image)
+			{
+				if($image != '')
+				{
+					echo "<span class='crossref'><a href='img/thumbs/$image' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='img/main/$image' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
+				}
+			}
 			echo '<span class="engWord clr1">'.$xmlObj->head->word;
 			foreach ($xmlObj->head->alias as $alias)
 			{
@@ -134,7 +142,11 @@ if(!empty($_POST['chk_list']))
 				{
 					if($chkval == "mng")
 					{
-						$xmlVal = preg_replace("/$wd_mng/i", "<span style=\"color: red\">$wd_mng</span>", $xmlVal);
+						$span_mng = preg_split('/\|/',$wd_mng);
+						foreach($span_mng as $mean)
+						{
+							$xmlVal = preg_replace("/$mean/i", "<span style=\"color: red\">$mean</span>", $xmlVal);
+						}
 					}
 				}
 				elseif($count == 2)
