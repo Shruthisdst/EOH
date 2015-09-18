@@ -200,6 +200,7 @@ function EncodeAndLower($paraMeters)
 	$tmp = preg_replace('/Ñ/','ñ',$tmp);
 	$tmp = preg_replace('/Ḥ/','ḥ',$tmp);
 	$tmp = preg_replace('/Ḷ/','ḷ',$tmp);
+	$tmp = preg_replace('/<span style="color: red">/','',$tmp);
 	$tmp = "<a class=\"refWord\" href=\"displayword.php?word=" . $tmp . "\">". $paraMeters[1]. "</a>";
 	return $tmp;
 }
