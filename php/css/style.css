@@ -694,12 +694,7 @@ Main components
     margin: 5px 0 0 50px;
     font-size: 0.84em;
 }
-.word .wBody ol{
-    list-style-type: decimal !important;
-}
-.word .wBody li{
-    padding: 5px 0;
-}
+
 .word .wBody p{
     line-height: 1.5;
 }
@@ -745,14 +740,13 @@ p.bracket_grp{
 	float: right;
 }
 ol {
-  margin:0 0 0 1.5em;
   padding:0;
   counter-reset:item;
 }
 
 ol>li {
   margin:0;
-  padding:0 0 0 2em;
+  padding:0 0 0.7em 1.4em;
   text-indent:-1.6em;
   list-style-type:none;
   counter-increment:item;
@@ -767,14 +761,13 @@ ol>li:before {
   content:counter(item) ".";
 }
 .lower-alpha{
-  margin:0 0 0 1.5em;
   padding:0;
   counter-reset:item;
 }
 
 .lower-alpha>li {
   margin:0;
-  padding:0 0 0 2em;
+  padding:0 0 0.7em 1.5em;
   text-indent:-1.6em;
   list-style-type:none;
   counter-increment:item;
@@ -789,22 +782,7 @@ ol>li:before {
   content:counter(item, lower-alpha) ".";
 }
 
-/*.lower-alpha{
-	list-style-type: lower-alpha;
-	margin-left: 1.5em;
-	font-weight: bold;
-}
-.lower-alpha li{
-	font-weight: normal;
-}*/
 
-/*.word .wBody ol li{
-    list-style-type: decimal !important;
-    margin-left: 1.5em;
-}
-.word .wBody li{
-    padding: 5px 0;
-}*/
 .word .wBody p{
     line-height: 1.5;
 }
