@@ -47,20 +47,21 @@ if($num_rows > 0)
 		echo '</span>';
 		
 		echo '</div>';
+		echo '<div class="grammarLabel">';
 		
 		foreach ($xmlObj->head->note as $note)
 		{
-			echo '<div class="grammarLabel">';
+			
 			if($note != '')
 			{
 				echo '<span>'.$note.'</span>';
-				echo '</div>';
 			}
 			else
 			{
-				echo '<br /></div>';
+				echo '<span></span>';
 			}
 		}
+		echo '<br /></div>';
 		echo '<div class="wBody">';
 		foreach ($xmlObj->description->children() as $child)
 		{

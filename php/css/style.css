@@ -646,7 +646,7 @@ Main components
 }
 .arrow-scroll {
   bottom: 100px;
-  right: 60px;
+  right: 80px;
   cursor: pointer;
   position: static;
   position: absolute;
@@ -692,7 +692,7 @@ Main components
 .word .wBody{
 	font-family: 'GentiumPlus-R';
     margin: 5px 0 0 50px;
-    font-size: 0.8em;
+    font-size: 0.84em;
 }
 .word .wBody ol{
     list-style-type: decimal !important;
@@ -744,18 +744,67 @@ p.bracket_grp{
 	vertical-align: bottom;
 	float: right;
 }
-.word .wBody .lower-alpha li{
-	list-style-position: inside;
-    list-style-type: lower-alpha; !important;
+ol {
+  margin:0 0 0 1.5em;
+  padding:0;
+  counter-reset:item;
 }
-.word .wBody ol li{
+
+ol>li {
+  margin:0;
+  padding:0 0 0 2em;
+  text-indent:-1.6em;
+  list-style-type:none;
+  counter-increment:item;
+}
+
+ol>li:before {
+  display:inline-block;
+  width:1.5em;
+  padding-right:0.5em;
+  font-weight:bold;
+  text-align:right;
+  content:counter(item) ".";
+}
+.lower-alpha{
+  margin:0 0 0 1.5em;
+  padding:0;
+  counter-reset:item;
+}
+
+.lower-alpha>li {
+  margin:0;
+  padding:0 0 0 2em;
+  text-indent:-1.6em;
+  list-style-type:none;
+  counter-increment:item;
+}
+
+.lower-alpha>li:before {
+  display:inline-block;
+  width:1.5em;
+  padding-right:0.5em;
+  font-weight:bold;
+  text-align:right;
+  content:counter(item, lower-alpha) ".";
+}
+
+/*.lower-alpha{
+	list-style-type: lower-alpha;
+	margin-left: 1.5em;
+	font-weight: bold;
+}
+.lower-alpha li{
+	font-weight: normal;
+}*/
+
+/*.word .wBody ol li{
     list-style-type: decimal !important;
     margin-left: 1.5em;
 }
-
 .word .wBody li{
     padding: 5px 0;
-}
+}*/
 .word .wBody p{
     line-height: 1.5;
 }
