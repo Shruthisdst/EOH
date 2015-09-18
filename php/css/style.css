@@ -769,7 +769,6 @@ ol>li:before {
   margin:0;
   padding:0 0 0.7em 1.5em;
   text-indent:-1.6em;
-  list-style-type:none;
   counter-increment:item;
 }
 
@@ -829,6 +828,9 @@ div.seealso{
 }
 .word .wBody em{
     font-style: italic;
+}
+.subhead{
+	color: #950C0C;
 }
 .refWord{
 	color: #3372df;

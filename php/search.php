@@ -67,7 +67,6 @@ if($result){$result->free();}
 									</td>
 								</tr>
 							</table>
-							
 						</form>
 				</div>
 			</div> <!-- cd-container -->
