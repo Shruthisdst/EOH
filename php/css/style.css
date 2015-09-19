@@ -826,7 +826,7 @@ div.seealso{
 #form_data{
 	margin-top: 2em;
 }
-.word .wBody em{
+em{
     font-style: italic;
 }
 .subhead{
