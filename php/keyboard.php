@@ -1,5 +1,5 @@
 <div id="kbd">
-	<div class="softkeyHead">Soft keyboard to insert special symbols</div>
+	<div class="softkeyHead">Soft keyboard to insert<br />special symbols</div>
 	<div class="keys tline lline" id="A" onclick="InsertText('Ā')">Ā</div>
 	<div class="keys tline" id="a" onclick="InsertText('ā')">ā</div>
 	<div class="keys lline" id="I" onclick="InsertText('Ī')">Ī</div>
