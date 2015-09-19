@@ -31,10 +31,8 @@ if($num_rows > 0)
 		{
 			if($image != '')
 			{
-				
 				echo "<span class='crossref'><a href='img/thumbs/$image' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='img/main/$image' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
 			}
-
 		}
 		echo '<span class="engWord clr1">'.$xmlObj->head->word;
 		foreach ($xmlObj->head->alias as $alias)
@@ -45,13 +43,10 @@ if($num_rows > 0)
 			}
 		}
 		echo '</span>';
-		
 		echo '</div>';
 		echo '<div class="grammarLabel">';
-		
 		foreach ($xmlObj->head->note as $note)
 		{
-			
 			if($note != '')
 			{
 				echo '<span>'.$note.'</span>';
@@ -73,7 +68,6 @@ if($num_rows > 0)
 		}
 		echo '</div>';
 		//echo '<div class="wBody">'. $xmlObj->description->asXML() . '</div>';
-		
 		echo '</div>';
 	}
 }

@@ -14,7 +14,7 @@ $searchWord = preg_replace("/^ /", "", $searchWord);
 $searchWord = preg_replace("/ $/", "", $searchWord);
 if($searchWord=='')
 {
-	$searchWord = '.*';
+	$searchWord = '. *';
 }
 if(!empty($_POST['chk_list']))
 {
