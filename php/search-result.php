@@ -5,6 +5,7 @@
 <?php
 
 include("connect.php");
+require_once("common.php");
 
 $searchWord = $_POST['word'];
 
@@ -99,12 +100,12 @@ if(!empty($_POST['chk_list']))
 		{
 			$mng = $row['text'];
 			$id = $row['entry_id'];
-			
+			$word = $row['word'];
 			$xmlObj=simplexml_load_string($mng);
 			
 			echo '<div class="word">';
 			echo '<div class="whead">';
-			$word = $row['word'];
+			
 			
 			echo '<span class="engWord clr1">'.$xmlObj->head->word;
 			foreach ($xmlObj->head->alias as $alias)
