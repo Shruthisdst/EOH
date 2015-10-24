@@ -780,6 +780,26 @@ ol>li:before {
   text-align:right;
   content:counter(item, lower-alpha) ".";
 }
+.lower-roman{
+  padding:0;
+  counter-reset:item;
+}
+
+.lower-roman>li {
+  margin:0;
+  padding:0 0 0.7em 1.5em;
+  text-indent:-1.6em;
+  counter-increment:item;
+}
+
+.lower-roman>li:before {
+  display:inline-block;
+  width:1.5em;
+  padding-right:0.5em;
+  font-weight:bold;
+  text-align:right;
+  content:counter(item, lower-roman) ".";
+}
 
 
 .word .wBody p{
@@ -809,8 +829,10 @@ div.seealso{
 	color: #3372df;
 }
 .crossref a img{
-	float: right;
-	vertical-align: middle;
+	display: block;
+	margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .alpha_link {
@@ -826,12 +848,28 @@ div.seealso{
 #form_data{
 	margin-top: 2em;
 }
+.boldText{
+	font-weight: bold;
+}
 em{
     font-style: italic;
 }
-.subhead{
+.italicBold{
+	color: #950C0C;
+	font-style: italic;
+	font-weight: bold;
+}
+.italicText{
+	color: #950C0C;
+	font-style: italic;
+}
+.poem{
+	font-style: italic;
+}
+.normalText{
 	color: #950C0C;
 }
+
 .refWord{
 	color: #3372df;
 }
@@ -898,5 +936,18 @@ em{
 }
 .lline {
 	border-left: 1px solid #777;
+}
+.fntsymbol{
+	color: red;
+}
+.FootNote{
+	border-top: 1px solid #000;
+	font-size: 0.9em;
+}
+table tr th{
+	font-weight: bold;
+}
+table tr td{
+	padding: 10px;
 }
 
