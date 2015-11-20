@@ -8,28 +8,26 @@
 				<span class="alpha_link"><a href="description.php?letter=B">B</a></span>
 				<span class="alpha_link"><a href="description.php?letter=C">C</a></span>
 				<span class="alpha_link"><a href="description.php?letter=D">D</a></span>
-				<span class="alpha_link"><a href="#">E</a></span>
-				<span class="alpha_link"><a href="#">F</a></span>
-				<span class="alpha_link"><a href="#">G</a></span>
-				<span class="alpha_link"><a href="#">H</a></span>
-				<span class="alpha_link"><a href="#">I</a></span>
-				<span class="alpha_link"><a href="#">J</a></span>
-				<span class="alpha_link"><a href="#">K</a></span>
-				<span class="alpha_link"><a href="#">L</a></span>
-				<span class="alpha_link"><a href="#">M</a></span>
-				<span class="alpha_link"><a href="#">N</a></span>
-				<span class="alpha_link"><a href="#">O</a></span>
-				<span class="alpha_link"><a href="#">P</a></span>
-				<span class="alpha_link"><a href="#">Q</a></span>
-				<span class="alpha_link"><a href="#">R</a></span>
-				<span class="alpha_link"><a href="#">S</a></span>
-				<span class="alpha_link"><a href="#">T</a></span>
-				<span class="alpha_link"><a href="#">U</a></span>
-				<span class="alpha_link"><a href="#">V</a></span>
-				<span class="alpha_link"><a href="#">W</a></span>
-				<span class="alpha_link"><a href="#">X</a></span>
-				<span class="alpha_link"><a href="#">Y</a></span>
-				<span class="alpha_link"><a href="#">Z</a></span>
+				<span class="alpha_link"><a href="description.php?letter=E">E</a></span>
+				<span class="alpha_link"><a href="description.php?letter=F">F</a></span>
+				<span class="alpha_link"><a href="description.php?letter=G">G</a></span>
+				<span class="alpha_link"><a href="description.php?letter=H">H</a></span>
+				<span class="alpha_link"><a href="description.php?letter=I">I</a></span>
+				<span class="alpha_link"><a href="description.php?letter=J">J</a></span>
+				<span class="alpha_link"><a href="description.php?letter=K">K</a></span>
+				<span class="alpha_link"><a href="description.php?letter=L">L</a></span>
+				<span class="alpha_link"><a href="description.php?letter=M">M</a></span>
+				<span class="alpha_link"><a href="description.php?letter=N">N</a></span>
+				<span class="alpha_link"><a href="description.php?letter=O">O</a></span>
+				<span class="alpha_link"><a href="description.php?letter=P">P</a></span>
+				<span class="alpha_link"><a href="description.php?letter=R">R</a></span>
+				<span class="alpha_link"><a href="description.php?letter=S">S</a></span>
+				<span class="alpha_link"><a href="description.php?letter=T">T</a></span>
+				<span class="alpha_link"><a href="description.php?letter=U">U</a></span>
+				<span class="alpha_link"><a href="description.php?letter=V">V</a></span>
+				<span class="alpha_link"><a href="description.php?letter=W">W</a></span>
+				<span class="alpha_link"><a href="description.php?letter=Y">Y</a></span>
+				<span class="alpha_link"><a href="description.php?letter=Z">Z</a></span>
             </div>
 			<form id="form_data" method="GET" action="displayword.php">
 				<span class="label_word">Enter the word:</span>&nbsp;&nbsp;
@@ -66,8 +64,8 @@ echo $wordsList . ']});</script>';
 if($result){$result->free();}
 
 ?>				
-				<button type="submit" value="Submit">Submit</button> &nbsp;&nbsp;
-				<button type="reset" value="Reset">Reset</button>
+				<button type="submit" value="Submit" class="submit">Submit</button> &nbsp;&nbsp;
+				<button type="reset" value="Reset" class="reset">Reset</button>
 			</form>                
 			</div> <!-- cd-container -->
 		</div> <!-- cd-scrolling-bg -->
