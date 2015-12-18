@@ -26,15 +26,18 @@ if ($xml === false)
 } 
 else 
 {
-	foreach ($xml->entry as $entry)
+	foreach ($xml->volume as $volume)
 	{
-		$word = addslashes($entry->head->word);
-		#echo "\n" . $text . "\n";
-		$text = addslashes($entry->asXML());
-		#echo $desc . "\n";
+		foreach ($volume->entry as $entry)
+		{
+			$word = addslashes($entry->head->word);
+			#echo "\n" . $text . "\n";
+			$text = addslashes($entry->asXML());
+			#echo $desc . "\n";
 		
-		$query = "INSERT INTO EOH VALUES('', '$word', '$text')";
-		mysql_query($query) or die("Query Problem" . mysql_error() . "\n");
+			$query = "INSERT INTO EOH VALUES('', '$word', '$text')";
+			mysql_query($query) or die("Query Problem" . mysql_error() . "\n");
+		}
 
 	}
 }
