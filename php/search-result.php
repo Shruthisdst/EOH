@@ -102,6 +102,7 @@ if(!empty($_POST['chk_list']))
 			$id = $row['entry_id'];
 			$word = $row['word'];
 			$xmlObj=simplexml_load_string($mng);
+			$figNum = $word;
 			
 			echo '<div class="word">';
 			echo '<div class="whead">';
@@ -132,6 +133,7 @@ if(!empty($_POST['chk_list']))
 				echo '</div>';
 			}
 			echo '<div class="wBody">';
+			$fig = $xmlObj->description->figure;
 			foreach ($xmlObj->description->children() as $child)
 			{
 				$xmlVal = $child->asXML();
@@ -158,10 +160,6 @@ if(!empty($_POST['chk_list']))
 					}
 				}
 				$xmlVal = replaceHeadings($xmlVal);
-				if(preg_match('#<figure>#', $xmlVal, $match))
-				{
-					echo "<span class='crossref'><a href='img/thumbs/$word.png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='img/main/$word.png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
-				}
 				if(preg_match('#<aside>(.*)<\/aside>#', $xmlVal, $match))
 				{
 					$xmlVal = preg_replace('/<aside>(.*?)<\/aside>/', "<span class=\"fntsymbol\">*</span>", $xmlVal);
@@ -170,6 +168,27 @@ if(!empty($_POST['chk_list']))
 				}
 				else
 				{
+					$f = 1;
+					$count = count($fig);
+					if($count > 2)
+					{
+						if($figNum <= $count)
+						{
+							if(preg_match('#<figure>#', $xmlVal, $match))
+							{
+								$figNum = $figNum + $f;
+								echo "<span class='crossref'><a href='img/thumbs/$word"."_".$figNum.".png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='img/main/$word"."_".$figNum.".png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
+							}
+						}
+						$f++;
+					}
+					else
+					{
+						if(preg_match('#<figure>#', $xmlVal, $match))
+						{
+							echo "<span class='crossref'><a href='img/thumbs/$word.png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='img/main/$word.png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
+						}
+					}
 					echo $xmlVal;
 				}
 			}

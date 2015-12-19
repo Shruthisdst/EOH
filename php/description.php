@@ -27,7 +27,7 @@ if($num_rows > 0)
 		#$vnum = $row['vnum'];
 		
 		$xmlObj=simplexml_load_string($mng);
-		
+		$figNum = $word;
 		echo '<div class="word">';
 		echo '<div class="whead">';
 		//echo "<span class='crossref'><a href='img/thumbs/abhayahasta.png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='img/main/abhayahasta.png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
@@ -55,24 +55,45 @@ if($num_rows > 0)
 		}
 		echo '</div>';
 		echo '<div class="wBody">';
+		$fig = $xmlObj->description->figure;
+		
 		foreach ($xmlObj->description->children() as $child)
 		{
+			
 			$xmlVal = $child->asXML();
 			$xmlVal = replaceHeadings($xmlVal);
 			//$xmlVal = preg_replace('/<aside>(.*)<\/aside>/', "*", $xmlVal);
-			if(preg_match('#<figure>#', $xmlVal, $match))
-			{
-				echo count($match);
-				echo "<span class='crossref'><a href='img/thumbs/$word.png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='img/main/$word.png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
-			}
+			
 			if(preg_match('#<aside>(.*?)<\/aside>#', $xmlVal, $match))
 			{
+				
 				$xmlVal = preg_replace('/<aside>(.*)<\/aside>/', "<span class=\"fntsymbol\">*</span>", $xmlVal);
 				echo $xmlVal;
 				$footNote = $match[1];
 			}
 			else
 			{
+				$f = 1;
+				$count = count($fig);
+				if($count > 2)
+				{
+					if($figNum <= $count)
+					{
+						if(preg_match('#<figure>#', $xmlVal, $match))
+						{
+							$figNum = $figNum + $f;
+							echo "<span class='crossref'><a href='img/thumbs/$word"."_".$figNum.".png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='img/main/$word"."_".$figNum.".png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
+						}
+					}
+					$f++;
+				}
+				else
+				{
+					if(preg_match('#<figure>#', $xmlVal, $match))
+					{
+						echo "<span class='crossref'><a href='img/thumbs/$word.png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='img/main/$word.png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
+					}
+				}
 				echo $xmlVal;
 			}
 		}

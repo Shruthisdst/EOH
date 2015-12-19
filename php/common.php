@@ -24,6 +24,7 @@ function replaceHeadings($xmlVal)
 	$xmlVal = preg_replace('/<h2>(.*)<\/h2>/', "<p class=\"italicText\">$1</p>", $xmlVal);
 	$xmlVal = preg_replace('/<p type="poem">(.*)<\/p>/', "<p class=\"poem\">$1</p>", $xmlVal);
 	$xmlVal = preg_replace('/<h3>(.*)<\/h3>/', "<p class=\"italicBold\">$1</p>", $xmlVal);
+	$xmlVal = preg_replace('/<figcaption>(.*)<\/figcaption>/', "<p class=\"figCaption\">$1</p>", $xmlVal);
 	$xmlVal = preg_replace_callback('/<ref href="(.*?)">(.*?)<\/ref>/', "EncodeAndLower", $xmlVal);
 	return($xmlVal);
 }
