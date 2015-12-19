@@ -12,7 +12,8 @@ if(!(isValidalpha($letter)))
 {
 	exit(1);
 }
-$query = "select * from EOH where word like '$letter%'";
+$query = "select * from EOH where word like '$letter%' order by word";
+
 $result = $db->query($query); 
 $num_rows = $result ? $result->num_rows : 0;
 $footNote = '';
@@ -23,6 +24,7 @@ if($num_rows > 0)
 		$mng = $row['text'];
 		$id = $row['entry_id'];
 		$word = $row['word'];
+		#$vnum = $row['vnum'];
 		
 		$xmlObj=simplexml_load_string($mng);
 		
@@ -60,6 +62,7 @@ if($num_rows > 0)
 			//$xmlVal = preg_replace('/<aside>(.*)<\/aside>/', "*", $xmlVal);
 			if(preg_match('#<figure>#', $xmlVal, $match))
 			{
+				echo count($match);
 				echo "<span class='crossref'><a href='img/thumbs/$word.png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='img/main/$word.png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
 			}
 			if(preg_match('#<aside>(.*?)<\/aside>#', $xmlVal, $match))
