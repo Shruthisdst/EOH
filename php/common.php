@@ -1,6 +1,10 @@
 <?php
 
-
+function isValidVolume($vnum)
+{
+	if(is_array($vnum)){return false;}
+	return preg_match("/[1-4]/", $vnum) ? true : false;
+}
 function isValidLetter($letter)
 {
 	return is_array($letter) ? false : true;

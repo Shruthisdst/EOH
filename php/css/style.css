@@ -74,20 +74,7 @@ Modules - reusable parts of our design
   color: #9c581b !important;
 }
 
-.simpleTable{
-  margin: 0 auto;
-}
 
-.simpleTable td:first-child {
-  border-right: 1px solid #EEE;
-  border-bottom: 1px solid #EEE;
-  padding: 20px 30px 20px 0;
-}
-
-.simpleTable td:last-child {
-  padding: 20px 0px 20px 30px;
-  border-bottom: 1px solid #EEE;
-}
 
 .bquote{
   font-size: 0.9em;
@@ -159,58 +146,6 @@ Modules - reusable parts of our design
 .editor div:last-child {
   font-size: 0.9em;
   line-height: 2.5;
-}
-
-.archiveIcon{
-  width: 175px;
-  color: #BBB;
-  line-height: 0px;
-  margin-bottom: 60px;
-  text-align: center;
-  float: left;
-}
-
-.archiveIcon a{
-  display: inline-block;
-  transition: color 0.3s ease-out;
-}
-
-.archiveIcon a:HOVER{
-  color: #9c581b;
-  transition: color 0.3s ease-out;
-}
-
-.archiveIcon div:first-child {
-  font-size: 70px;
-}
-
-.archiveIcon div:last-child {
-  font-size: 20px;
-  line-height: 2;
-}
-
-.aNumber {
-  width: 90%;
-  text-align: left;
-  margin: 10px 0px 10px 0px;
-  float: left; 
-}
-
-.aNumber div:first-child {
-  font-size: 0.7em;
-  border-bottom: 1px solid #3372df;
-  line-height: 2.5;
-  padding-left: 20px;
-}
-
-.aNumber div:last-child {
-  font-size: 0.9em;
-  line-height: 2.5;
-  padding-left: 20px;
-}
-
-.aNumber {
-  color: inherit;
 }
 
 .seeMore{
@@ -515,11 +450,9 @@ Main components
   color: white;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
-
 .cd-container h1 {
   font-size: 30px;
 } 
-
 .cd-container p {
   margin: 20px 0;
 }
@@ -666,7 +599,7 @@ Main components
 }
 @media only screen and (min-width: 930px) {
   .cd-scrolling-bg {
-    padding: 8em 0;
+    padding: 6em 0;
     font-size: 20px;
     font-size: 1.25rem;
     line-height: 2;
@@ -677,11 +610,13 @@ Main components
 	color: #3372df !important;
 }
 .submit{
-	margin: 1.5em 2em 0em 6.5em;
+	margin: 2em 1em 0em 12em;
 	padding: 0.3em;
+	color: #3372df
 }
 .reset{
 	padding: 0.3em;
+	color: #3372df
 }
 
 #button2{
@@ -689,6 +624,28 @@ Main components
 }
 #button{
     margin-left: 3em;
+}
+.volume{
+  margin: 30px 0 0 0;
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  line-height: 1.5;
+  min-height: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.volume .vnum{
+  font-size: 18px;
+  padding: 10px;
+  min-width: 80px;
+  text-align: center;
+}
+.vnum a:hover{
+	color: #3372df;
+}
+.gapAbove{
+	margin-top: 3em;
 }
 .word, .images_list{
     margin: 30px 0;
@@ -846,13 +803,20 @@ div.seealso{
 }
 
 .alpha_link {
-	font-family: serif;
-	font-size: 2em;
-	padding-right: 1.5em;
+	font-size: 1.2em;
+  padding: 10px;
+  min-width: 80px;
+  text-align: center;
+}
+.alpha_link a:hover{
 	color: #3372df;
 }
 .label_word{
-	font-size: 0.8em;
+	font-size: 1em;
+	color: #3372df;
+}
+#autocomplete{
+	padding:0.7em;
 }
 
 #form_data{
