@@ -33,7 +33,7 @@
 			<ul>
 				<li><a href="../index.html#home">HOME</a></li>
 				<li><a href="../index.html#about">ABOUT</a></li>
-				<li><a href="words.php">INDEX</a></li>
+				<li><a href="list.php">INDEX</a></li>
 				<li><a href="search.php">SEARCH</a></li>
 			</ul>
 		</nav><!-- cd-main-nav -->

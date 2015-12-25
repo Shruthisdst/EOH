@@ -636,7 +636,7 @@ Main components
   justify-content: space-around;
 }
 .volume .vnum{
-  font-size: 18px;
+  font-size: 20px;
   padding: 10px;
   min-width: 80px;
   text-align: center;
@@ -644,9 +644,7 @@ Main components
 .vnum a:hover{
 	color: #3372df;
 }
-.gapAbove{
-	margin-top: 3em;
-}
+
 .word, .images_list{
     margin: 30px 0;
     padding: 20px 20px 40px 20px;
@@ -803,10 +801,11 @@ div.seealso{
 }
 
 .alpha_link {
-	font-size: 1.2em;
-  padding: 10px;
-  min-width: 80px;
-  text-align: center;
+	font-size: 1.3em;
+	margin-left:1em;
+	padding: 10px;
+	min-width: 80px;
+	text-align: center;
 }
 .alpha_link a:hover{
 	color: #3372df;
@@ -820,7 +819,7 @@ div.seealso{
 }
 
 #form_data{
-	margin-top: 2em;
+	margin: 2em 0em 0em 2em;
 }
 .boldText{
 	font-weight: bold;
