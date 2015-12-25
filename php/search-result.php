@@ -101,6 +101,7 @@ if(!empty($_POST['chk_list']))
 			$mng = $row['text'];
 			$id = $row['entry_id'];
 			$word = $row['word'];
+			$vnum = $row['vnum'];
 			$xmlObj=simplexml_load_string($mng);
 			$figNum = $word;
 			
@@ -117,6 +118,7 @@ if(!empty($_POST['chk_list']))
 				}
 			}
 			echo '</span>';
+			echo '<span class="vnum clr1"><a href="volumes.php?vnum='.$vnum.'">Volume&nbsp;-&nbsp;'.$vnum.'</a></span>';
 			echo '</div>';
 			
 			foreach ($xmlObj->head->note as $note)

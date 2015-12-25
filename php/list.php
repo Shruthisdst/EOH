@@ -7,16 +7,16 @@
 include("connect.php");
 require_once("common.php");
 
-$query = "select distinct vnum from EOH";
+$query = "select distinct vnum from EOH order by vnum";
 $result = $db->query($query);
 $num_rows = $result ? $result->num_rows : 0;
 if($num_rows > 0)
 {
-	echo '<div class="volume">';
+	echo '<div class="container">';
 	while($row = $result->fetch_assoc())
 	{
 		$vnum = $row['vnum'];
-		echo "<div class=\"vnum\"><a href=\"volumes.php?vnum=$vnum\">Volume-$vnum</a></div>";
+		echo "<div class=\"content\"><a href=\"volumes.php?vnum=$vnum\">Volume-$vnum</a></div>";
 	}
 	echo '</div>';
 }
@@ -25,6 +25,8 @@ if($num_rows > 0)
 
 			<div class="head gapAbove">
 				<h1 class="clr1 gapBelowSmall">Letters</h1>
+				<div class="container">
+				<div class="content">
 				<span class="alpha_link"><a href="description.php?letter=A">A</a></span>
 				<span class="alpha_link"><a href="description.php?letter=B">B</a></span>
 				<span class="alpha_link"><a href="description.php?letter=C">C</a></span>
@@ -49,12 +51,14 @@ if($num_rows > 0)
 				<span class="alpha_link"><a href="description.php?letter=W">W</a></span>
 				<span class="alpha_link"><a href="description.php?letter=Y">Y</a></span>
 				<span class="alpha_link"><a href="description.php?letter=Z">Z</a></span>
+				</div>
+				</div>
             </div>
             <div class="head gapAbove">
 				<h1 class="clr1 gapBelowSmall">Quick Search</h1>
-			<form id="form_data" method="GET" action="displayword.php">
-				<span class="label_word">Enter the word:</span>&nbsp;&nbsp;
-				<input name="word" type="text" id="autocomplete" /><br />
+				<form id="form_data" method="GET" action="displayword.php">
+					<span class="label_word">Enter the word:</span>&nbsp;&nbsp;
+					<input name="word" type="text" id="autocomplete" /><br />
 <?php
 include("connect.php");
 require_once("common.php");
@@ -87,9 +91,9 @@ echo $wordsList . ']});</script>';
 if($result){$result->free();}
 
 ?>				
-				<button type="submit" value="Submit" class="submit">Submit</button> &nbsp;&nbsp;
-				<button type="reset" value="Reset" class="reset">Reset</button>
-			</form>
+					<button type="submit" value="Submit" class="submit">Submit</button> &nbsp;&nbsp;
+					<button type="reset" value="Reset" class="reset">Reset</button>
+				</form>
 			</div>               
 
 			</div> <!-- cd-container -->
