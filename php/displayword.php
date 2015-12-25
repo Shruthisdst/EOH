@@ -28,6 +28,7 @@ if($num_rows > 0)
 		$word = $row['word'];
 		
 		$xmlObj=simplexml_load_string($mng);
+		$figNum = $word;
 		
 		echo '<div class="word">';
 		echo '<div class="whead">';
@@ -57,19 +58,40 @@ if($num_rows > 0)
 			echo '</div>';
 		}
 		echo '<div class="wBody">';
+		$fig = $xmlObj->description->figure;
+		
 		foreach ($xmlObj->description->children() as $child)
 		{
+			
 			$xmlVal = $child->asXML();
 			$xmlVal = replaceHeadings($xmlVal);
-			if(preg_match('#<figure>#', $xmlVal, $match))
-			{
-				echo "<span class='crossref'><a href='img/thumbs/$word.png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='img/main/$word.png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
-			}
+			
 			if(preg_match('#<aside>(.*?)<\/aside>#', $xmlVal, $match))
 			{
+				
 				$xmlVal = preg_replace('/<aside>(.*)<\/aside>/', "<span class=\"fntsymbol\">*</span>", $xmlVal);
 				echo $xmlVal;
 				$footNote = $match[1];
+			}
+			elseif(preg_match('#<figure>#', $xmlVal, $match))
+			{
+				$f = 1;
+				$count = count($fig);
+				if($count > 1)
+				{
+					if($figNum <= $count)
+					{
+						$figNum = $figNum + $f;
+						echo "<span class='crossref'><a href='img/thumbs/$word"."_".$figNum.".png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='img/main/$word"."_".$figNum.".png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
+						echo $xmlVal;
+					}
+					$f++;
+				}
+				else
+				{
+					echo "<span class='crossref'><a href='img/thumbs/$word.png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='img/main/$word.png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
+					echo $xmlVal;
+				}
 			}
 			else
 			{
@@ -78,12 +100,20 @@ if($num_rows > 0)
 		}
 		if($footNote != '')
 		{
-			echo "<div class=\"FootNote\"><span class=\"fntsymbol\">*</span>$footNote</div>";
+			echo "<div class=\"FootNote\">";
+			foreach ($xmlObj->description->children() as $child)
+			{
+				$xmlVal = $child->asXML();
+				if(preg_match('#<aside>(.*?)<\/aside>#', $xmlVal, $match))
+				{
+					echo "<div><span class=\"fntsymbol\">*</span>$match[1]</div>";
+				}
+			}
+			echo '</div>';
 		}
-		echo '</div>';
-		//echo '<div class="wBody">'. $xmlObj->description->asXML() . '</div>';
-		echo '</div>';
 		$footNote = '';
+		echo '</div>';
+		echo '</div>';
 	}
 }
 else

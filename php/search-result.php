@@ -166,40 +166,47 @@ if(!empty($_POST['chk_list']))
 					echo $xmlVal;
 					$footNote = $match[1];
 				}
-				else
+				elseif(preg_match('#<figure>#', $xmlVal, $match))
 				{
 					$f = 1;
 					$count = count($fig);
-					if($count > 2)
+					if($count > 1)
 					{
 						if($figNum <= $count)
 						{
-							if(preg_match('#<figure>#', $xmlVal, $match))
-							{
-								$figNum = $figNum + $f;
-								echo "<span class='crossref'><a href='img/thumbs/$word"."_".$figNum.".png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='img/main/$word"."_".$figNum.".png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
-							}
+							$figNum = $figNum + $f;
+							echo "<span class='crossref'><a href='img/thumbs/$word"."_".$figNum.".png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='img/main/$word"."_".$figNum.".png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
+							echo $xmlVal;
 						}
 						$f++;
 					}
 					else
 					{
-						if(preg_match('#<figure>#', $xmlVal, $match))
-						{
-							echo "<span class='crossref'><a href='img/thumbs/$word.png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='img/main/$word.png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
-						}
+						echo "<span class='crossref'><a href='img/thumbs/$word.png' data-lightbox='imgae-".$id."' data-title='". $xmlObj->head->word . "'><img src='img/main/$word.png' alt='Figure:" . $xmlObj->head->word . "' /></a></span><br />";
+						echo $xmlVal;
 					}
+				}
+				else
+				{
 					echo $xmlVal;
 				}
 			}
 			if($footNote != '')
 			{
-				echo "<div class=\"FootNote\"><span class=\"fntsymbol\">*</span>$footNote</div>";
+				echo "<div class=\"FootNote\">";
+				foreach ($xmlObj->description->children() as $child)
+				{
+					$xmlVal = $child->asXML();
+					if(preg_match('#<aside>(.*?)<\/aside>#', $xmlVal, $match))
+					{
+						echo "<div><span class=\"fntsymbol\">*</span>$match[1]</div>";
+					}
+				}
+				echo '</div>';
 			}
-			echo '</div>';
-			//echo '<div class="wBody">'. $xmlObj->description->asXML() . '</div>';
-			echo '</div>';
 			$footNote = '';
+			echo '</div>';
+			echo '</div>';
 		}
 	}
 	else

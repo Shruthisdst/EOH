@@ -820,7 +820,7 @@ ol>li:before {
 	text-align: center;
 }
 .fig_caption{
-	color: #3372df;	
+	color: #3372df;
 }
 .img_display img{
 	padding:1px;
@@ -950,6 +950,10 @@ em{
 .fntsymbol{
 	color: red;
 }
+dl dd{
+	padding-left: 2.5em;
+	padding-bottom: 0.7em;
+}
 .FootNote{
 	border-top: 1px solid #000;
 	font-size: 0.9em;
@@ -960,5 +964,5 @@ table tr td{
 .figCaption{
 	text-align: center;
 	font-weight: bold;
-	font-size: 1.1em;
+	font-size: 1em;
 }
