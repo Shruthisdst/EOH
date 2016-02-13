@@ -14,7 +14,7 @@ $searchWord = preg_replace("/[ ]+/", " ", $searchWord);
 $searchWord = preg_replace("/^ /", "", $searchWord);
 $searchWord = preg_replace("/ $/", "", $searchWord);
 $footNote = '';
-
+$chkval = '';
 if($searchWord=='')
 {
 	$searchWord = '. *';

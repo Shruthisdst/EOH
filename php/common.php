@@ -23,6 +23,10 @@ function isValidWord($word)
 
 function replaceHeadings($xmlVal)
 {
+	if(preg_match('#<ref href="<span style="color: red">#', $xmlVal, $match))
+	{
+		$xmlVal = preg_replace('/<span style="color: red">(.*?)<\/span>/', "$1", $xmlVal);
+	}
 	$xmlVal = preg_replace('/<strong>(.*)<\/strong>/', "<span class=\"boldText\">$1</span>", $xmlVal);
 	$xmlVal = preg_replace('/<h1>(.*)<\/h1>/', "<p class=\"normalText\">$1</p>", $xmlVal);
 	$xmlVal = preg_replace('/<h2>(.*)<\/h2>/', "<p class=\"italicText\">$1</p>", $xmlVal);
@@ -32,16 +36,19 @@ function replaceHeadings($xmlVal)
 	$xmlVal = preg_replace_callback('/<ref href="(.*?)">(.*?)<\/ref>/', "EncodeAndLower", $xmlVal);
 	return($xmlVal);
 }
+
 function EncodeAndLower($paraMeters)
 {
 	$tmp = $paraMeters[1];
+
 	if($paraMeters[1] == '')
 	{
-		$tmp = "<a class=\"refWord\" href=#\">". $paraMeters[0]. "</a>";
+		$tmp = "<a class=\"refWord\" href=#\">". $paraMeters[1]. "</a>";
 	}
 	else
 	{
-
+		
+		$tmp = preg_replace('//', '', $tmp);
 		//$tmp = strtolower($tmp);
 		$tmp = preg_replace('/Ā/','ā',$tmp);
 		$tmp = preg_replace('/Ś/','ś',$tmp);
@@ -62,5 +69,6 @@ function EncodeAndLower($paraMeters)
 	}
 	return $tmp;
 }
+
 
 ?>
